@@ -43,8 +43,8 @@ function Main() {
 // Reverse the order of the columns of the selected cells
 function reorderColumns(myDoc) {
 
-	var fullRowNo = app.selection[0].parent.columns[0].cells.length; // Get the number of rows in the table
-	var celSel = app.selection[0].columns.everyItem().getElements(); // Get the columns of the selected cells
+	var fullRowNo = myDoc.selection[0].parent.columns[0].cells.length; // Get the number of rows in the table
+	var celSel = myDoc.selection[0].columns.everyItem().getElements(); // Get the columns of the selected cells
 
 	// Check for merged cells in affected columns
 	// Iterate through each of the affected column
@@ -88,7 +88,7 @@ function reorderColumns(myDoc) {
 // Reverse the order of the columns of selected table
 function reorderAllColumns(myDoc) {
 	
-	var celSel = app.selection[0].cells;
+	var celSel = myDoc.selection[0].cells;
 
 	// Check for merged cells
 	// Iterate through each cell in the table
@@ -109,7 +109,7 @@ function reorderAllColumns(myDoc) {
 		app.copy();
 		app.select(selColumns[-1]);
 		app.paste();
-	    	selColumns[-1].width = selColumns[i].width;
+		selColumns[-1].width = selColumns[i].width;
 		selColumns[i].remove();
 	}
 }
