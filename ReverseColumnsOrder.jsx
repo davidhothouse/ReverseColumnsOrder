@@ -109,6 +109,7 @@ function reorderAllColumns(myDoc) {
 		app.copy();
 		app.select(selColumns[-1]);
 		app.paste();
+	    	selColumns[-1].width = selColumns[i].width;
 		selColumns[i].remove();
 	}
 }
